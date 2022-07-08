@@ -73,6 +73,6 @@ Example:
 
 
 
-//Bonus
+////Bonus
 Xerath tendrá una barra de mana que irá descendiendo a lo largo de la partida. Y si consigues sobrevivir 
 a todos sus ataques, tus compañeros te acompañaran a derribar su torre y ganarás.
