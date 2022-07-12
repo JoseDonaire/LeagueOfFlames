@@ -1,7 +1,7 @@
 class Flame {
-    constructor(srcParam) {
+    constructor() {
       this.image = new Image();
-      this.image.src = srcParam;
+      this.image.src = '/images/flame1.png';
       this.x = 0;
       this.y = 0;
       this.w = 150;

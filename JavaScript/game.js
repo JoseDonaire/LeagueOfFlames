@@ -8,82 +8,41 @@ class Game {
       this.xerath = new Image();
       this.xerath.src = '/images/xerath.png'
       this.xerathAttacksArr = []
+      this.flame = new Flame()
+      this.score = 0;
+      this.attackSpeed = 2
     }
 
   
     //  todos los metodos del juego 
-    //limitar movimientos de yasuo al canvas
-    limitYasuo = ()=>{
-
-    }
+  
     //reacción al aumento de bonus
     scoreReaction = ()=>{
-      let randomImage = Math.random()
-      let randomFlame = new Flame(randomImage)
-      if (scoreDom > 130){
-        if(randomImage < 0.2){
-          randomImage = '/images/flame1.png'
-       }else if(randomImage >0.2 && randomImage<0.4){
-          randomImage = '/images/flame2.png'
-       }else if(randomImage > 0.4 && randomImage <0.6){
-          randomImage = '/images/flame3.png'
-       }else if (randomImage >0.6 && randomImage < 0.8){
-          randomImage = '/images/flame4.png' 
+      if (this.score % 3 === 0){
+        let randomNumber = Math.random()
+        if(randomNumber < 0.2){
+          // acceder al flame propiedad y le cambias el src
+          this.flame.image.src = '/images/flame1.png'
+       }else if(randomNumber >0.2 && randomNumber<0.4){
+        this.flame.image.src = '/images/flame2.png'
+       }else if(randomNumber > 0.4 && randomNumber <0.6){
+        this.flame.image.src = '/images/flame3.png'
+       }else if (randomNumber >0.6 && randomNumber < 0.8){
+        this.flame.image.src = '/images/flame4.png' 
        }else{
-          randomImage = '/images/flame5.png'
-       }
-      }else if(scoreDom < 180){
-        if(randomImage < 0.2){
-          randomImage = '/images/flame1.png'
-       }else if(randomImage >0.2 && randomImage<0.4){
-          randomImage = '/images/flame2.png'
-       }else if(randomImage > 0.4 && randomImage <0.6){
-          randomImage = '/images/flame3.png'
-       }else if (randomImage >0.6 && randomImage < 0.8){
-          randomImage = '/images/flame4.png' 
-       }else{
-          randomImage = '/images/flame5.png'
-       }
-      
-      } else if(scoreDom > 300){
-        if(randomImage < 0.2){
-          randomImage = '/images/flame1.png'
-       }else if(randomImage >0.2 && randomImage<0.4){
-          randomImage = '/images/flame2.png'
-       }else if(randomImage > 0.4 && randomImage <0.6){
-          randomImage = '/images/flame3.png'
-       }else if (randomImage >0.6 && randomImage < 0.8){
-          randomImage = '/images/flame4.png' 
-       }else{
-          randomImage = '/images/flame5.png'
-       }
-      }else if(scoreDom > 400){
-        if(randomImage < 0.2){
-          randomImage = '/images/flame1.png'
-       }else if(randomImage >0.2 && randomImage<0.4){
-          randomImage = '/images/flame2.png'
-       }else if(randomImage > 0.4 && randomImage <0.6){
-          randomImage = '/images/flame3.png'
-       }else if (randomImage >0.6 && randomImage < 0.8){
-          randomImage = '/images/flame4.png' 
-       }else{
-          randomImage = '/images/flame5.png'
+        this.flame.image.src  = '/images/flame5.png'
        }
       }
-      return randomFlame
     }
 
     velocityAttacks=() => {
-      if(scoreDom > 130){
-        xerathAttacks.speed = xerathAttacks.speed + 2
-      }else if(scoreDom > 300){
-        xerathAttacks.speed = xerathAttacks.speed + 4
-      }else if (scoreDom > 400){
-        xerathAttacks.speed = xerathAttacks.speed + 6
-      }else if(scoreDom > 600){
-        xerathAttacks.speed = xerathAttacks.speed + 15
-      }
-    }
+      // cuando sea multiplo de 4 entonces aumentta la velocidad en 1
+      if(this.score % 3 === 0){
+        this.attackSpeed = this.attackSpeed + 0.5
+        // quieres cambiar la velocidad de ataque de LOS ataques NUEVOS
+        // cambiar la velocidad de TODOS los ataques actual de array
+       }
+    } 
   
     //  para limpiar el array cuando los elementos salen del canvas 
     removeXerathAttacksFromArray = () => {
@@ -94,8 +53,13 @@ class Game {
     }
     // score y flames
     scoreDodge = ()=>{
-    if(this.xerathAttacksArr[0].x < 0){
-     scoreDom.innerText = Number(scoreDom.innerText) + 1}
+    if(this.xerathAttacksArr[0].x + this.xerathAttacksArr[0].w < 0){
+      this.score = this.score + 1
+      scoreDom.innerText  =this.score
+      // aqui es donde invocamos la funcion que cambia el src del Flame
+      this.scoreReaction()
+      this.velocityAttacks()
+    }
     }
   
   
@@ -128,16 +92,16 @@ class Game {
         // 1. si el array está vacio
         // 2. si el ULTIMO elemento del array, ha pasado la mitad del canvas
   
-        let randomPositionY = Math.random() * 300
+        let randomPositionY = Math.random() * canvas.height
         let randomImage = Math.random() 
         if(randomImage < 0.5){
           randomImage = "/images/rayo.png"
         }else{
           randomImage = "/images/bola-energy.png"
         }
-        let newAttack1= new XertahAttacks(randomPositionY,randomImage)
+        let newAttack1= new XertahAttacks(randomPositionY,randomImage,this.attackSpeed)
         this.xerathAttacksArr.push(newAttack1)
-        let newAttack2 = new XertahAttacks(randomPositionY,randomImage)
+        let newAttack2 = new XertahAttacks(randomPositionY,randomImage,this.attackSpeed)
         this.xerathAttacksArr.push(newAttack2)
   
       }
@@ -158,8 +122,6 @@ class Game {
      this.removeXerathAttacksFromArray()
      //score
      this.scoreDodge()
-     this.scoreReaction()
-     this.velocityAttacks()
       // 3. Dibujar los elementos
       //imagen
       ctx.drawImage(this.grieta, 0, 0, canvas.width, canvas.height);
@@ -168,18 +130,22 @@ class Game {
       //yasuo
       this.yasuo.drawYasuo()
       //ataque xerath
-      //ataque1
-      //ataque2
       this.xerathAttacksArr.forEach((eachAttack) => {
         eachAttack.xertahAttacksMovement()
       })
       this.xerathAttacksArr.forEach((eachAttack) => {
-        eachAttack.drawXertahAttacks()
+        eachAttack.drawXerathAttacks()
       })
+
+      // aqui siempre dibujas la llama
+      // si el score es +4 entonces dibuja
+      if(this.score > 4){
+      this.flame.drawFlame()
+      }
       // 4. Efecto de recursión
       if (this.isGameOn === true) {
       requestAnimationFrame(this.gameLoop);
       //}
     };
-  }
-} 
+  } 
+}

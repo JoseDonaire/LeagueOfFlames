@@ -25,10 +25,6 @@ const startGame = () => {
   };
   
 
-// * STATE MANAGEMENT FUNCTIONS
-
-
-
 
 // * ADD EVENT LISTENERS
 
@@ -38,15 +34,15 @@ restartBtn.addEventListener("click", startGame)
 window.addEventListener("keydown", (event) => {
   if (event.code === "KeyA" ) {
     // aqui muevo el yasuo a la izquierda
-    game.yasuo.x = game.yasuo.x - 5;
+   game.yasuo.moveX(-1);
   } else if (event.code === "KeyD" )  {
     // aqui muevo el yasuo a la derecha
-    game.yasuo.x = game.yasuo.x + 5;
+    game.yasuo.moveX(+1);
   }else if (event.code === "KeyW")  {
     // aqui muevo el yasuo arriba
-    game.yasuo.y = game.yasuo.y -5;
+    game.yasuo.moveY(-1); 
   }else if (event.code === "KeyS")  {
     // aqui muevo el yasuo abajo
-    game.yasuo.y = game.yasuo.y +5;
+    game.yasuo.moveY(+1);
   }
 });
