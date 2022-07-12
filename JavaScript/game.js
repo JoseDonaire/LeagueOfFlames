@@ -19,6 +19,7 @@ class Game {
     //reacción al aumento de bonus
     scoreReaction = ()=>{
       let randomImage = Math.random()
+      let randomFlame = new Flame(randomImage)
       if (scoreDom > 130){
         if(randomImage < 0.2){
           randomImage = '/images/flame1.png'
@@ -31,7 +32,6 @@ class Game {
        }else{
           randomImage = '/images/flame5.png'
        }
-       randomFlame = new Flame(randomImage)
       }else if(scoreDom < 180){
         if(randomImage < 0.2){
           randomImage = '/images/flame1.png'
@@ -44,7 +44,7 @@ class Game {
        }else{
           randomImage = '/images/flame5.png'
        }
-       randomFlame = new Flame(randomImage)
+      
       } else if(scoreDom > 300){
         if(randomImage < 0.2){
           randomImage = '/images/flame1.png'
@@ -57,7 +57,6 @@ class Game {
        }else{
           randomImage = '/images/flame5.png'
        }
-       randomFlame = new Flame(randomImage)
       }else if(scoreDom > 400){
         if(randomImage < 0.2){
           randomImage = '/images/flame1.png'
@@ -70,19 +69,20 @@ class Game {
        }else{
           randomImage = '/images/flame5.png'
        }
-       randomFlame = new Flame(randomImage)
       }
-      
+      return randomFlame
+    }
+
+    velocityAttacks=() => {
       if(scoreDom > 130){
         xerathAttacks.speed = xerathAttacks.speed + 2
-      }else if(this.scoreDodge > 300){
-        xerathAttacks.speed = xerathAttacks.speed + 2
+      }else if(scoreDom > 300){
+        xerathAttacks.speed = xerathAttacks.speed + 4
       }else if (scoreDom > 400){
-        xerathAttacks.speed = xerathAttacks.speed + 2
-      }else{
-        xerathAttacks.speed = xerathAttacks.speed + 10
+        xerathAttacks.speed = xerathAttacks.speed + 6
+      }else if(scoreDom > 600){
+        xerathAttacks.speed = xerathAttacks.speed + 15
       }
-
     }
   
     //  para limpiar el array cuando los elementos salen del canvas 
@@ -159,6 +159,7 @@ class Game {
      //score
      this.scoreDodge()
      this.scoreReaction()
+     this.velocityAttacks()
       // 3. Dibujar los elementos
       //imagen
       ctx.drawImage(this.grieta, 0, 0, canvas.width, canvas.height);
