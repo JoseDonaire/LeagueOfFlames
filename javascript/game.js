@@ -14,10 +14,7 @@ class Game {
       this.audioInicio = new Audio()
       this.audioInicio.src = "./sounds/inicio.mp3";
       this.audioAtaque = new Audio('./sounds/ataques.mp3') ;
-      //this.audioAtaque = './sounds/ataques.mp3'
-      
       this.audioDerrota = new Audio('./sounds/derrota.mp3') ;
-      //this.audioDerrota = './sounds/derrota.mp3'
     }
   //bonus feedback
   //mejorar hitbox
@@ -91,8 +88,8 @@ class Game {
 
         if (eachAttack.x < this.yasuo.x + this.yasuo.w &&
           eachAttack.x + eachAttack.w > this.yasuo.x &&
-          eachAttack.y < this.yasuo.y + this.yasuo.h &&
-          eachAttack.h + eachAttack.y > this.yasuo.y) {
+          eachAttack.y < this.yasuo.y + this.yasuo.h / 2 &&
+          eachAttack.h /2+ eachAttack.y > this.yasuo.y) {
 
           this.gameOver()
       }
