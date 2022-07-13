@@ -15,6 +15,12 @@ class Game {
       this.audioInicio.src = "./sounds/inicio.mp3";
       this.audioAtaque = new Audio('./sounds/ataques.mp3') ;
       this.audioDerrota = new Audio('./sounds/derrota.mp3') ;
+      this.audioBlame1 = new Audio('./sounds/blame1.mp3')
+      this.audioBlame2 = new Audio('./sounds/blame2.mp3')
+      this.audioBlame3 = new Audio('./sounds/blame3.mp3')
+      this.audioBlame4 = new Audio('./sounds/blame4.mp3')
+      this.audioBlame5 = new Audio('./sounds/blame5.mp3')
+      this.audioBlame6 = new Audio('./sounds/blame6.mp3')
     }
   //bonus feedback
   //mejorar hitbox
@@ -75,6 +81,27 @@ class Game {
         this.audioAtaque.play()
         this.audioAtaque.loop = true
         this.audioAtaque.volume = 0.2;
+      }
+      if(this.score === 10){
+        this.audioBlame1.play()
+        this.audioBlame1.volume = 0.2
+
+      }else if(this.score === 15){
+        this.audioBlame2.play()
+        this.audioBlame2.volume = 0.2
+
+      }else if(this.score === 25){
+        this.audioBlame3.play()
+        this.audioBlame3.volume = 0.2
+      }else if(this.score === 35){
+        this.audioBlame4.play()
+        this.audioBlame4.volume = 0.2
+      }else if(this.score === 45){
+        this.audioBlame5.play()
+        this.audioBlame5.volume = 0.2
+      }else if(this.score === 55){
+        this.audioBlame6.play()
+        this.audioBlame6.volume = 0.2
       }
       this.scoreReaction()
       this.velocityAttacks()
