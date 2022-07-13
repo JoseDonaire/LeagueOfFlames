@@ -16,22 +16,42 @@ class Game {
 
   
     //  todos los metodos del juego 
-  
+    //audios
+    audio = ()=>{
+      if(this.score === 0){
+        this.audio.preload = "auto";
+        this.audio.src = ".sounds/inicio.mp3";
+        this.audio.play();
+        
+      }else if(this.score  > 1){
+        this.audio = './sounds/ataques.mp3'
+      }else if(this.isGameOn === false){
+        this.audio = './sounds/derrota.mp3'
+      }
+    }
     //reacción al aumento de bonus
     scoreReaction = ()=>{
       if (this.score % 3 === 0){
         let randomNumber = Math.random()
-        if(randomNumber < 0.2){
+        if(randomNumber < 0.1){
           // acceder al flame propiedad y le cambias el src
           this.flame.image.src = './images/flame1.png'
-       }else if(randomNumber >0.2 && randomNumber<0.4){
+       }else if(randomNumber >0.2 && randomNumber<0.3){
         this.flame.image.src = './images/flame2.png'
-       }else if(randomNumber > 0.4 && randomNumber <0.6){
+       }else if(randomNumber > 0.3 && randomNumber <0.4){
         this.flame.image.src = './images/flame3.png'
-       }else if (randomNumber >0.6 && randomNumber < 0.8){
+       }else if (randomNumber >0.4 && randomNumber < 0.5){
         this.flame.image.src = './images/flame4.png' 
-       }else{
+       }else if(randomNumber >0.5 && randomNumber < 0.6){
         this.flame.image.src  = './images/flame5.png'
+       }else if(randomNumber >0.6 && randomNumber < 0.7){
+        this.flame.image.src  = './images/flame6.png'
+       }else if(randomNumber >0.7 && randomNumber < 0.8){
+        this.flame.image.src  = './images/flame7.png'
+       }else if(randomNumber >0.8 && randomNumber < 0.9){
+        this.flame.image.src  = './images/flame8.png'
+       }else{
+        this.flame.image.src  = './images/flame9.png'
        }
       }
     }
@@ -60,6 +80,7 @@ class Game {
       // aqui es donde invocamos la funcion que cambia el src del Flame
       this.scoreReaction()
       this.velocityAttacks()
+     
     }
     }
   
