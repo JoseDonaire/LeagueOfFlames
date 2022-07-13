@@ -11,24 +11,20 @@ class Game {
       this.flame = new Flame()
       this.score = 0;
       this.attackSpeed = 2
-      this.audio = new Audio()
+      this.audioInicio = new Audio()
+      this.audioInicio.src = "./sounds/inicio.mp3";
+      this.audioAtaque = new Audio('./sounds/ataques.mp3') ;
+      //this.audioAtaque = './sounds/ataques.mp3'
+      
+      this.audioDerrota = new Audio('./sounds/derrota.mp3') ;
+      //this.audioDerrota = './sounds/derrota.mp3'
     }
-
+  //bonus feedback
+  //mejorar hitbox
   
     //  todos los metodos del juego 
     //audios
-    audio = ()=>{
-      if(this.score === 0){
-        this.audio.preload = "auto";
-        this.audio.src = ".sounds/inicio.mp3";
-        this.audio.play();
-        
-      }else if(this.score  > 1){
-        this.audio = './sounds/ataques.mp3'
-      }else if(this.isGameOn === false){
-        this.audio = './sounds/derrota.mp3'
-      }
-    }
+    
     //reacción al aumento de bonus
     scoreReaction = ()=>{
       if (this.score % 3 === 0){
@@ -77,10 +73,14 @@ class Game {
     if(this.xerathAttacksArr[0].x + this.xerathAttacksArr[0].w < 0){
       this.score = this.score + 1
       scoreDom.innerText  =this.score
-      // aqui es donde invocamos la funcion que cambia el src del Flame
+     //aqui es donde invocamos la funcion que cambia el src del Flame
+      if(this.score === 1){
+        this.audioAtaque.play()
+        this.audioAtaque.loop = true
+        this.audioAtaque.volume = 0.2;
+      }
       this.scoreReaction()
       this.velocityAttacks()
-     
     }
     }
   
@@ -104,6 +104,11 @@ class Game {
       this.isGameOn = false;
       canvas.style.display = "none"
       gameoverScreenDOM.style.display = "flex"
+      if(this.isGameOn === false){
+        this.audioAtaque.pause()
+        this.audioDerrota.play()
+        this.audioDerrota.volume = 0.2;
+      }
     }
   
   
@@ -119,7 +124,7 @@ class Game {
         if(randomImage < 0.5){
           randomImage = "./images/rayo.png"
         }else{
-          randomImage = "./images/bola-energy.png"
+          randomImage = "./images/bola-energia.png"
         }
         let newAttack1= new XertahAttacks(randomPositionY,randomImage,this.attackSpeed)
         this.xerathAttacksArr.push(newAttack1)
@@ -144,6 +149,7 @@ class Game {
      this.removeXerathAttacksFromArray()
      //score
      this.scoreDodge()
+     
       // 3. Dibujar los elementos
       //imagen
       ctx.drawImage(this.grieta, 0, 0, canvas.width, canvas.height);

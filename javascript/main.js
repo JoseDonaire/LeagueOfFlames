@@ -20,6 +20,8 @@ const startGame = () => {
     gameoverScreenDOM.style.display = "none";
     canvas.style.display = "block";
     game = new Game()
+    game.audioInicio.play()
+    game.audioInicio.volume = 0.2;
     console.log(game)
     game.gameLoop()
   };
