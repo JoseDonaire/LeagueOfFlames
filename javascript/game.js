@@ -2,7 +2,7 @@ class Game {
     constructor() {
 
       this.grieta = new Image();
-      this.grieta.src = './Images/grieta.png';
+      this.grieta.src = './images/grieta.png';
       this.isGameOn = true;
       this.yasuo= new Yasuo();
       this.xerath = new Image();
