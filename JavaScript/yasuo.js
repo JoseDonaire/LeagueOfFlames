@@ -3,7 +3,7 @@ class Yasuo {
   constructor() {
     // aqui todas las propiedades de yasuo
     this.image = new Image();
-    this.image.src = "/images/yasuo.png";
+    this.image.src = "./images/yasuo.png";
     this.x = 100;
     this.y = 300;
     this.w = 180;

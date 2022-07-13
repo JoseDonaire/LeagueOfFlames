@@ -6,7 +6,7 @@ class Game {
       this.isGameOn = true;
       this.yasuo= new Yasuo();
       this.xerath = new Image();
-      this.xerath.src = '/images/xerath.png'
+      this.xerath.src = './images/xerath.png'
       this.xerathAttacksArr = []
       this.flame = new Flame()
       this.score = 0;
@@ -22,15 +22,15 @@ class Game {
         let randomNumber = Math.random()
         if(randomNumber < 0.2){
           // acceder al flame propiedad y le cambias el src
-          this.flame.image.src = '/images/flame1.png'
+          this.flame.image.src = './images/flame1.png'
        }else if(randomNumber >0.2 && randomNumber<0.4){
-        this.flame.image.src = '/images/flame2.png'
+        this.flame.image.src = './images/flame2.png'
        }else if(randomNumber > 0.4 && randomNumber <0.6){
-        this.flame.image.src = '/images/flame3.png'
+        this.flame.image.src = './images/flame3.png'
        }else if (randomNumber >0.6 && randomNumber < 0.8){
-        this.flame.image.src = '/images/flame4.png' 
+        this.flame.image.src = './images/flame4.png' 
        }else{
-        this.flame.image.src  = '/images/flame5.png'
+        this.flame.image.src  = './images/flame5.png'
        }
       }
     }
@@ -95,9 +95,9 @@ class Game {
         let randomPositionY = Math.random() * canvas.height
         let randomImage = Math.random() 
         if(randomImage < 0.5){
-          randomImage = "/images/rayo.png"
+          randomImage = "./images/rayo.png"
         }else{
-          randomImage = "/images/bola-energy.png"
+          randomImage = "./images/bola-energy.png"
         }
         let newAttack1= new XertahAttacks(randomPositionY,randomImage,this.attackSpeed)
         this.xerathAttacksArr.push(newAttack1)
