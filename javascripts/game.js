@@ -11,6 +11,7 @@ class Game {
       this.flame = new Flame()
       this.score = 0;
       this.attackSpeed = 2
+      this.audio = new Audio()
     }
 
   
