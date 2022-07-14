@@ -7,6 +7,8 @@ class Game {
       this.yasuo= new Yasuo();
       this.xerath = new Image();
       this.xerath.src = './images/xerath.png'
+      this.instructions = new Image()
+      this.instructions.src = './images/instrucciones.png'
       this.xerathAttacksArr = []
       this.flame = new Flame()
       this.score = 0;

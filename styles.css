@@ -1,11 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
-    margin: 0;
-    background-color: rgb(0, 80, 4);
+   margin: 0%;
+   background-image: url('./images/background.jpg');
+   height: 100%;
+   width: 100%;
+   overflow-y:hidden
   }
 
-#my-canvas {
-    background-color: darkgray;
-  }
+ #my-canvas{
+  border-radius: 10px;
+ }
 
   #my-canvas, #gameover-screen{
     display: none;
@@ -18,6 +23,19 @@ body {
     align-items: center;
     margin: 50px;
   }
+
   button{
-    background-color: rgb(0, 80, 4);
+    margin: 0%;
+    padding: 0%;
+    border: none;
+    background: none;
+  }
+  span{
+    font-size: 30px;
+    font-family: 'Press Start 2P'  ;
+    color: antiquewhite;
+    font-weight: 400;
+    border: solid;
+    border-radius: 2px;
+    border-color: antiquewhite;
   }
