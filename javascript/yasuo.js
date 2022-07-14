@@ -1,7 +1,6 @@
 const MOVE_DISTANCE = 15;
 class Yasuo {
   constructor() {
-    // aqui todas las propiedades de yasuo
     this.image = new Image();
     this.image.src = "./images/yasuo.png";
     this.x = 100;
@@ -10,12 +9,9 @@ class Yasuo {
     this.h = 120;
   }
 
-  // aqui todos los metodos del yasuo
-
-  drawYasuo = () => {
+  drawImage = () => {
     ctx.drawImage(this.image, this.x, this.y, this.w, this.h);
   };
-
   moveY = (direction = 1) => {
     const newY = this.y + MOVE_DISTANCE * direction;
     const isInside = newY > 0 && newY + this.h < canvas.height;
