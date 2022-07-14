@@ -24,7 +24,6 @@ class Game {
     if (this.score % 3 === 0) {
       let randomNumber = Math.random();
       if (randomNumber < 0.1) {
-        // acceder al flame propiedad y le cambias el src
         this.flame.image.src = "./images/flame1.png";
       } else if (randomNumber > 0.2 && randomNumber < 0.3) {
         this.flame.image.src = "./images/flame2.png";
