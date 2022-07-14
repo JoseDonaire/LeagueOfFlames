@@ -157,7 +157,7 @@ class Game {
     this.removeXerathAttacksFromArray();
     this.scoreDodge();
     ctx.drawImage(this.grieta, 0, 0, canvas.width, canvas.height);
-    ctx.drawImage(this.xerath, 1100, 100, 400, 280);
+    ctx.drawImage(this.xerath, 1100, 100, 220, 220);
     this.yasuo.drawImage();
     this.xerathAttacksArr.forEach((eachAttack) => {
       eachAttack.xertahAttacksMovement();

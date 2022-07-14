@@ -5,8 +5,8 @@ class Yasuo {
     this.image.src = "./images/yasuo.png";
     this.x = 100;
     this.y = 300;
-    this.w = 180;
-    this.h = 120;
+    this.w = 140;
+    this.h = 100;
   }
 
   drawImage = () => {
