@@ -87,6 +87,7 @@ class Game {
       this.velocityAttacks();
     }
   };
+
   yasuoAttackCollision = () => {
     this.xerathAttacksArr.forEach((eachAttack) => {
       if (
