@@ -6,12 +6,11 @@ class Game {
     this.yasuo = new Yasuo();
     this.xerath = new Image();
     this.xerath.src = "./images/xerath.png";
-    this.instructions = new Image();
-    this.instructions.src = "./images/instrucciones.png";
     this.xerathAttacksArr = [];
     this.flame = new Flame();
     this.score = 0;
     this.attackSpeed = 2;
+    this.audioInicio = new Audio('./sounds/inicio.mp3')
     this.audioAtaque = new Audio("./sounds/ataques.mp3");
     this.audioDerrota = new Audio("./sounds/derrota.mp3");
     this.audioBlame1 = new Audio("./sounds/blame1.mp3");
@@ -21,7 +20,6 @@ class Game {
     this.audioBlame5 = new Audio("./sounds/blame5.mp3");
     this.audioBlame6 = new Audio("./sounds/blame6.mp3");
   }
-  
   scoreReaction = () => {
     if (this.score % 3 === 0) {
       let randomNumber = Math.random();
