@@ -129,7 +129,14 @@ class Game {
       canvas.style.display = "none"
       gameoverScreenDOM.style.display = "flex"
       if(this.isGameOn === false){
+        this.audioInicio.pause()
         this.audioAtaque.pause()
+        this.audioBlame1.pause()
+        this.audioBlame2.pause()
+        this.audioBlame3.pause()
+        this.audioBlame4.pause()
+        this.audioBlame5.pause()
+        this.audioBlame6.pause()
         this.audioDerrota.play()
         this.audioDerrota.volume = 0.2;
       }
