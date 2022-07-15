@@ -16,18 +16,10 @@
 
 # Backlog Functionalities
 
-- Gracias a aumentar el score enviaremos mensajes provocativos que enfureceran al enemigo acelerando sus ataques.
+- Gracias a aumentar el score enviaremos mensajes provocativos que enfurecerán al enemigo. 
+- Debido a esos mensajes, el enemigo acelerará sus ataques.
 
 # Proyect Structure
-
-- game.js : Para la función de recursión.
-- main.js : para los elementos DOM.
-- xerathAttacks.js : Para la Class XerathAttacks. 
-- yasuo.js : Para la Class Yasuo.
-- flame.js : Para la Class Flame
-
-
-Example:
 
 ## main.js
 
@@ -35,32 +27,33 @@ Example:
 
 ## game.js
 
-- Game () {
-    this.player;
-}
-- gameLoop () {}
-- checkCollisions () {}
+- constructor()
+- scoreReaction()
+- velocityAttacks()
+- removeXerathAttacksFromArray()
+- scoreDodge()
+- yasuoAttackCollision
+- gameOver()
+- automaticAddXerathAttacks()
+- gameLoop()
+
+
 
 ## yasuo.js 
 
-- yasuo () {
-    this.x;
-    this.y;
-    this.w;
-    this.h;
-}
-- drawYasuo () {}
-- moveYasuo () {}
+- constructor()
+- drawImage()
+- moveY()
+- moveX()
 
 ## xerathAttacks.js
-- xerathAttacks () {
-    this.x;
-    this.y;
-    this.w;
-    this.h;
-}
-- drawxerathAttacks () {}
-- movexerathAttacks () {}
+- constructor()
+- drawImage()
+- xertahAttacksMovement()
+
+## flame.js
+- constructor()
+- drawFlame()
 
 
 # States and Transitions

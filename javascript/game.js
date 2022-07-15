@@ -62,26 +62,26 @@ class Game {
       if (this.score === 1) {
         this.audioAtaque.play();
         this.audioAtaque.loop = true;
-        this.audioAtaque.volume = 0.2;
+        this.audioAtaque.volume = 0.1;
       }
       if (this.score === 10) {
         this.audioBlame1.play();
-        this.audioBlame1.volume = 0.2;
+        this.audioBlame1.volume = 0.1;
       } else if (this.score === 15) {
         this.audioBlame2.play();
-        this.audioBlame2.volume = 0.2;
+        this.audioBlame2.volume = 0.1;
       } else if (this.score === 25) {
         this.audioBlame3.play();
-        this.audioBlame3.volume = 0.2;
+        this.audioBlame3.volume = 0.1;
       } else if (this.score === 35) {
         this.audioBlame4.play();
-        this.audioBlame4.volume = 0.2;
+        this.audioBlame4.volume = 0.1;
       } else if (this.score === 45) {
         this.audioBlame5.play();
-        this.audioBlame5.volume = 0.2;
+        this.audioBlame5.volume = 0.1;
       } else if (this.score === 55) {
         this.audioBlame6.play();
-        this.audioBlame6.volume = 0.2;
+        this.audioBlame6.volume = 0.1;
       }
       this.scoreReaction();
       this.velocityAttacks();
@@ -114,7 +114,7 @@ class Game {
       this.audioBlame5.pause();
       this.audioBlame6.pause();
       this.audioDerrota.play();
-      this.audioDerrota.volume = 0.2;
+      this.audioDerrota.volume = 0.1;
     }
   };
   automaticAddXerathAttacks = () => {
